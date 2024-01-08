@@ -2,7 +2,7 @@
 # Подключаем пакеты
 import tensorflow as tf 
 import numpy as np
-# Необхрдимые функции
+# Необходимые функции
 from tensorflow.keras.datasets import fashion_mnist
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -13,7 +13,7 @@ from tensorflow.keras import utils
 x_train, x_test = x_train.reshape(60000, 784), x_test.reshape(10000, 784)
 # Применяются к каждому элементу массива отдельно
 x_train, x_test = x_train / 255, x_test / 255
-# Разделяем отеты на разные категории 
+# Разделяем ответы на разные категории 
 y_train, y_test = utils.to_categorical(y_train, 10), utils.to_categorical(y_test, 10) 
 # Создаем нейронную сеть
 model = Sequential()                                    # Создаем последовательную модель
