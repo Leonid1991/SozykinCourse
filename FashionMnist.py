@@ -30,3 +30,5 @@ i = -1
 print("Рассмотренный случай, i = ",i)
 print("Предсказание", np.argmax(prediction[i]))
 print("Реальность", np.argmax(y_test[i]))
+# Сохранение сети
+model.save('FashionMnist.h5') # .keras тоже хорошо
