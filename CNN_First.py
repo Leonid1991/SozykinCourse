@@ -3,16 +3,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 # Необходимые функции и пакеты
+from tensorflow import keras
 from keras.datasets import cifar10
 from keras.models import Sequential
-from keras.layers import Dense, Flatten
-from keras.layers import Dropout
+from keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPooling2D
 from keras.preprocessing import image
-from keras.layers import Conv2D, MaxPooling2D
 # from keras.utils import np_utils
 from tensorflow.keras import utils
 # Размер мини-выборки и эпох для обучения
-batch_size, nb_epoch  = 100, 10
+batch_size, nb_epoch  = 100, 3
 # Размер изображений (3 канала в изображении: RGB)
 img_channels, img_rows, img_cols = 3, 32, 32
 # Названия классов из набора данных CIFAR-10
@@ -31,16 +30,16 @@ x_train, x_test = x_train / 255, x_test / 255
 y_train, y_test = utils.to_categorical(y_train, 10), utils.to_categorical(y_test, 10) 
 # Создаем нейронную сеть (padding='same' нужно сохранить тот же размер изображкения, поэтому добавляем автоматически 0)
 model = Sequential()                                             # Создаем последовательную модель
-model.add(Conv2D(32, (3, 3), padding='same', input_shape=(img_rows, img_cols, img_channels), activation='relu'))  # Первый сверточный слой
-model.add(Conv2D(32, (3, 3), activation='relu', padding='same')) # Второй сверточный слой
+model.add(Conv2D(16, (3, 3), padding='same', input_shape=(img_rows, img_cols, img_channels), activation='relu'))  # Первый сверточный слой
+model.add(Conv2D(16, (3, 3), activation='relu', padding='same')) # Второй сверточный слой
 model.add(MaxPooling2D(pool_size=(2, 2)))                        # Первый слой подвыборки  
 model.add(Dropout(0.25))                                         # Слой регуляризации Dropout 
-model.add(Conv2D(64, (3, 3), padding='same', activation='relu')) # Третий сверточный слой
-model.add(Conv2D(64, (3, 3), activation='relu'))                 # Четвертый сверточный слой
+model.add(Conv2D(32, (3, 3), padding='same', activation='relu')) # Третий сверточный слой
+model.add(Conv2D(32, (3, 3), activation='relu'))                 # Четвертый сверточный слой
 model.add(MaxPooling2D(pool_size=(2, 2)))                        # Второй слой подвыборки
 model.add(Dropout(0.25))                                         # Слой регуляризации Dropout
 model.add(Flatten())                                             # Слой преобразования данных в плоское (1D ?!)
-model.add(Dense(512, activation='relu'))                         # Полносвязный слой для классификации
+model.add(Dense(256, activation='relu'))                         # Полносвязный слой для классификации
 model.add(Dropout(0.5))                                          # Слой регуляризации Dropout
 model.add(Dense(10, activation='softmax'))                       # Выходной полносвязный слой
 # Печатаем информацию о сети
