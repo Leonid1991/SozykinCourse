@@ -3,10 +3,10 @@
 import tensorflow as tf 
 import numpy as np
 # Необходимые функции
-from tensorflow.keras.datasets import fashion_mnist
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras import utils
+from keras.datasets import fashion_mnist
+from keras.models import Sequential
+from keras.layers import Dense
+from keras import utils
 # В Keras встроены средства работы с популярными наборами данных
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
 # Преобразование размерности
