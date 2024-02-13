@@ -11,7 +11,7 @@ from keras.layers import Dropout
 from keras.preprocessing import image
 from keras.layers import Conv2D, MaxPooling2D
 # from keras.utils import np_utils
-from tensorflow.keras import utils
+from keras import utils
 # Размер мини-выборки и эпох для обучения
 batch_size, nb_epoch  = 100, 10
 # Размер изображений (3 канала в изображении: RGB)
