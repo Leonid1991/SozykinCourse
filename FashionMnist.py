@@ -23,7 +23,7 @@ model.add(Dense(10, activation="softmax"))              # Выходной по�
 model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
 print(model.summary())
 # Обучаем нейронную сеть
-model.fit(x_train, y_train, batch_size=200, epochs=100, verbose=1)
+model.fit(x_train, y_train, batch_size=200, epochs=20, verbose=1)
 # Проверка на тестовых данных
 prediction = model.predict(x_test) # подстановка тестовых данных
 i = -1
