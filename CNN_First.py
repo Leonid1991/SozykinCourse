@@ -69,7 +69,7 @@ json_file.write(model_json)
 json_file.close()
 model.save_weights("cifar10_model.h5")'''
 # Проверка на тестовых данных
-i = -1
+i = -4
 x = x_test[i]
 x = np.expand_dims(x, axis=0)
 prediction = np.argmax(model.predict(x))
