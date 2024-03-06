@@ -9,9 +9,9 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPooling2D
 from keras.preprocessing import image
 # from keras.utils import np_utils
-from tensorflow.keras import utils
+from keras import utils
 # Размер мини-выборки и эпох для обучения
-batch_size, nb_epoch  = 100, 3
+batch_size, nb_epoch  = 200, 20
 # Размер изображений (3 канала в изображении: RGB)
 img_channels, img_rows, img_cols = 3, 32, 32
 # Названия классов из набора данных CIFAR-10
