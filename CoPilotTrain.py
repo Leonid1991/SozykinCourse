@@ -24,4 +24,3 @@ def multiply(a, b):
 
 # how to test the function?
 print(multiply(1, 2))    # 2
- 
